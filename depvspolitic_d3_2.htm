@@ -1,0 +1,179 @@
+<html>
+<head>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<h2>Deprivation Grid of England (Alpha)</h2>
+<h5>Grid of all 32,844 LSOAs in England sorted by deprivation, with most deprived at top-left, least deprived bottom-right and coloured by political representation at ward-level. </h5>
+<br />
+<div>
+	<select id="lauasel">
+    	<option value="" disabled="disabled" selected="selected">Please select a name</option>
+    	<option value='E09000001'>City of London</option>
+		<option value='E09000007'>Camden</option>
+		<option value='E09000011'>Greenwich</option>
+		<option value='E09000012'>Hackney</option>
+		<option value='E09000013'>Hammersmith and Fulham</option>
+		<option value='E09000019'>Islington</option>
+		<option value='E09000020'>Kensington and Chelsea</option>
+		<option value='E09000022'>Lambeth</option>
+		<option value='E09000023'>Lewisham</option>
+		<option value='E09000028'>Southwark</option>
+		<option value='E09000030'>Tower Hamlets</option>
+		<option value='E09000032'>Wandsworth</option>
+		<option value='E09000033'>Westminster</option>
+		<option value='E09000002'>Barking and Dagenham</option>
+		<option value='E09000003'>Barnet</option>
+		<option value='E09000004'>Bexley</option>
+		<option value='E09000005'>Brent</option>
+		<option value='E09000006'>Bromley</option>
+		<option value='E09000008'>Croydon</option>
+		<option value='E09000009'>Ealing</option>
+		<option value='E09000010'>Enfield</option>
+		<option value='E09000014'>Haringey</option>
+		<option value='E09000015'>Harrow</option>
+		<option value='E09000016'>Havering</option>
+		<option value='E09000017'>Hillingdon</option>
+		<option value='E09000018'>Hounslow</option>
+		<option value='E09000021'>Kingston upon Thames</option>
+		<option value='E09000024'>Merton</option>
+		<option value='E09000025'>Newham</option>
+		<option value='E09000026'>Redbridge</option>
+		<option value='E09000027'>Richmond upon Thames</option>
+		<option value='E09000029'>Sutton</option>
+		<option value='E09000031'>Waltham Forest</option>
+		<option value='E08000025'>Birmingham</option>
+		<option value='E08000026'>Coventry</option>
+		<option value='E08000027'>Dudley</option>
+		<option value='E08000028'>Sandwell</option>
+		<option value='E08000029'>Solihull</option>
+		<option value='E08000030'>Walsall</option>
+		<option value='E08000031'>Wolverhampton</option>
+		<option value='E08000011'>Knowsley</option>
+		<option value='E08000012'>Liverpool</option>
+		<option value='E08000013'>St. Helens</option>
+		<option value='E08000014'>Sefton</option>
+		<option value='E08000015'>Wirral</option>
+		<option value='E08000001'>Bolton</option>
+		<option value='E08000002'>Bury</option>
+		<option value='E08000003'>Manchester</option>
+		<option value='E08000004'>Oldham</option>
+		<option value='E08000005'>Rochdale</option>
+		<option value='E08000006'>Salford</option>
+		<option value='E08000007'>Stockport</option>
+		<option value='E08000008'>Tameside</option>
+		<option value='E08000009'>Trafford</option>
+		<option value='E08000010'>Wigan</option>
+		<option value='E08000016'>Barnsley</option>
+		<option value='E08000017'>Doncaster</option>
+		<option value='E08000018'>Rotherham</option>
+		<option value='E08000019'>Sheffield</option>
+		<option value='E08000032'>Bradford</option>
+		<option value='E08000033'>Calderdale</option>
+		<option value='E08000034'>Kirklees</option>
+		<option value='E08000035'>Leeds</option>
+		<option value='E08000036'>Wakefield</option>
+		<option value='E08000020'>Gateshead</option>
+		<option value='E08000021'>Newcastle upon Tyne</option>
+		<option value='E08000022'>North Tyneside</option>
+		<option value='E08000023'>South Tyneside</option>
+		<option value='E08000024'>Sunderland</option>
+		<option value='E06000053'>Isles of Scilly</option>
+		<option value='E06000022'>Bath and North East Somerset</option>
+		<option value='E06000023'>Bristol, City of</option>
+		<option value='E06000024'>North Somerset</option>
+		<option value='E06000025'>South Gloucestershire</option>
+		<option value='E06000001'>Hartlepool</option>
+		<option value='E06000002'>Middlesbrough</option>
+		<option value='E06000003'>Redcar and Cleveland</option>
+		<option value='E06000004'>Stockton-on-Tees</option>
+		<option value='E06000010'>Kingston upon Hull, City of</option>
+		<option value='E06000011'>East Riding of Yorkshire</option>
+		<option value='E06000012'>North East Lincolnshire</option>
+		<option value='E06000013'>North Lincolnshire</option>
+		<option value='E10000023'>North Yorkshire</option>
+		<option value='E06000014'>York</option>
+		<option value='E06000032'>Luton</option>
+		<option value='E06000055'>Bedford</option>
+		<option value='E06000056'>Central Bedfordshire</option>
+		<option value='E10000002'>Buckinghamshire</option>
+		<option value='E06000042'>Milton Keynes</option>
+		<option value='E10000007'>Derbyshire</option>
+		<option value='E06000015'>Derby</option>
+		<option value='E10000009'>Dorset</option>
+		<option value='E06000029'>Poole</option>
+		<option value='E06000028'>Bournemouth</option>
+		<option value='E06000047'>Durham</option>
+		<option value='E06000005'>Darlington</option>
+		<option value='E10000011'>East Sussex</option>
+		<option value='E06000043'>Brighton and Hove</option>
+		<option value='E10000014'>Hampshire</option>
+		<option value='E06000044'>Portsmouth</option>
+		<option value='E06000045'>Southampton</option>
+		<option value='E10000018'>Leicestershire</option>
+		<option value='E06000016'>Leicester</option>
+		<option value='E06000017'>Rutland</option>
+		<option value='E10000028'>Staffordshire</option>
+		<option value='E06000021'>Stoke-on-Trent</option>
+		<option value='E06000054'>Wiltshire</option>
+		<option value='E06000030'>Swindon</option>
+		<option value='E06000036'>Bracknell Forest</option>
+		<option value='E06000040'>Windsor and Maidenhead</option>
+		<option value='E06000037'>West Berkshire</option>
+		<option value='E06000038'>Reading</option>
+		<option value='E06000039'>Slough</option>
+		<option value='E06000041'>Wokingham</option>
+		<option value='E10000003'>Cambridgeshire</option>
+		<option value='E06000031'>Peterborough</option>
+		<option value='E06000006'>Halton</option>
+		<option value='E06000007'>Warrington</option>
+		<option value='E10000008'>Devon</option>
+		<option value='E06000026'>Plymouth</option>
+		<option value='E06000027'>Torbay</option>
+		<option value='E10000012'>Essex</option>
+		<option value='E06000033'>Southend-on-Sea</option>
+		<option value='E06000034'>Thurrock</option>
+		<option value='E06000019'>Herefordshire</option>
+		<option value='E10000034'>Worcestershire</option>
+		<option value='E10000016'>Kent</option>
+		<option value='E06000035'>Medway</option>
+		<option value='E10000017'>Lancashire</option>
+		<option value='E06000008'>Blackburn with Darwen</option>
+		<option value='E06000009'>Blackpool</option>
+		<option value='E10000024'>Nottinghamshire</option>
+		<option value='E06000018'>Nottingham</option>
+		<option value='E06000051'>Shropshire</option>
+		<option value='E06000020'>Telford and Wrekin</option>
+		<option value='E06000049'>Cheshire East</option>
+		<option value='E06000050'>Cheshire West and Chester</option>
+		<option value='E06000052'>Cornwall</option>
+		<option value='E10000006'>Cumbria</option>
+		<option value='E10000013'>Gloucestershire</option>
+		<option value='E10000015'>Hertfordshire</option>
+		<option value='E06000046'>Isle of Wight</option>
+		<option value='E10000019'>Lincolnshire</option>
+		<option value='E10000020'>Norfolk</option>
+		<option value='E10000021'>Northamptonshire</option>
+		<option value='E06000048'>Northumberland</option>
+		<option value='E10000025'>Oxfordshire</option>
+		<option value='E10000027'>Somerset</option>
+		<option value='E10000029'>Suffolk</option>
+		<option value='E10000030'>Surrey</option>
+		<option value='E10000031'>Warwickshire</option>
+		<option value='E10000032'>West Sussex</option>
+	</select>
+</div>
+<br />
+<div id="option">
+    <input name="updateButton" 
+           type="button" 
+           value="Punch it chewie" 
+           onclick="updateData()" />
+</div>
+<br />
+<div id="grid"></div>
+
+<script src="scripts/grid2.js" type="text/javascript"></script>
+</body>
+</html>
