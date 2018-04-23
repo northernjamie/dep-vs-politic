@@ -1,5 +1,5 @@
 
-d3.csv('data/DEPVSREP160418.csv', function (error, data) {
+d3.csv('data/DEPVSREP230418.csv', function (error, data) {
 
 data.forEach(function(d) {
             d.IMD15 = +d.IMD15;
@@ -139,4 +139,12 @@ function updateData() {
        .style("stroke", function(d) {if (d.laua == lauasel) { return "#111";}
                                       return "#fff";})
             
+}
+
+function resetData() {
+    var svg = d3.select("#grid").transition();
+    svg.selectAll(".square")
+       .duration(500)
+       .style("opacity",1)
+       .style("stroke-width",0)
 }

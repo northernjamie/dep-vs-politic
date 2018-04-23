@@ -2,6 +2,14 @@
 <head>
 	<script src="https://d3js.org/d3.v4.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+	
+	.option {
+		display: inline;
+	}
+
+
+	</style>
 </head>
 <body>
 <h2>Deprivation Grid of England (Alpha)</h2>
@@ -348,6 +356,11 @@ Update - <a href="https://twitter.com/astronomyblog" target="_blank">Stuart Lowe
            type="button" 
            value="Punch it chewie" 
            onclick="updateData()" />
+
+    <input name="resetButton" 
+           type="button" 
+           value="R-R-R-Reset" 
+           onclick="resetData()" />
 </div>
 <br />
 <div id="grid"></div>
